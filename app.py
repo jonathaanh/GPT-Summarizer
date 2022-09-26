@@ -16,7 +16,13 @@ def index():
             model="text-davinci-002",
             prompt=generate_prompt(text),
             temperature=0.6,
+            max_tokens=2000,
+            top_p=1.0,
+            frequency_penalty=0.25,
+            presence_penalty=0.0,
+            stop=['<<END>>']
         )
+        print(response)
         return redirect(url_for("index", result=response.choices[0].text))
 
     result = request.args.get("result")
@@ -24,9 +30,8 @@ def index():
 
 
 def generate_prompt(text):
-    return """Write a concise summary of the following:
-    {}
-    CONCISE SUMMARY:"""
+    return """Write a concise detailed summary of the following:{}
+    CONCISE DETAILED SUMMARY:""".format(text)
 
 def open_file(filepath):
 	with open(filepath, 'r', encoding='utf-8') as infile:
@@ -35,3 +40,5 @@ def open_file(filepath):
 def save_file(content, filepath):
 	with open(filepath, 'w', encoding='utf-8') as outfile:
 		outfile.write(content)
+
+
