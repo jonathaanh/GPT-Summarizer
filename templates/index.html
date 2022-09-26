@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <head>
-  <title>OpenAI Quickstart</title>
+  <title>GPT3 Summarizer</title>
   <link
     rel="shortcut icon"
     href="{{ url_for('static', filename='dog.png') }}"
@@ -10,10 +10,11 @@
 
 <body>
   <img src="{{ url_for('static', filename='dog.png') }}" class="icon" />
-  <h3>Name my pet</h3>
+  <h3>Enter text to summarize:</h3>
   <form action="/" method="post">
-    <input type="text" name="animal" placeholder="Enter an animal" required />
-    <input type="submit" value="Generate names" />
+    <textarea name="text" placeholder="Enter some text" rows="20" cols="100" required></textarea>
+  </br>
+    <input type="submit" value="Generate summary" />
   </form>
   {% if result %}
   <div class="result">{{ result }}</div>
