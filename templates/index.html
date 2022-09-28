@@ -1,18 +1,19 @@
 <!DOCTYPE html>
 <head>
   <title>GPT3 Summarizer</title>
-  <!-- <link
+  <link
     rel="shortcut icon"
-  href="{{ url_for('static', filename='dog.png') }}" 
-  /> -->
+  href="{{ url_for('static', filename='summly1.png') }}" 
+  />
   <link rel="stylesheet" href="{{ url_for('static', filename='main.css') }}" />
 </head>
 
 <body>
-  <!-- <img src="{{ url_for('static', filename='dog.png') }}" class="icon" /> -->
+  <img src="{{ url_for('static', filename='summly.png') }}" class="icon" />
   <h3>Enter text to summarize:</h3>
+  <h4>Examples: Articles, Books, Papers, Table of Contents </h4>
   <form action="/" method="post">
-    <textarea name="text" placeholder="Enter some text" rows="20" cols="100" required></textarea>
+    <textarea class="textarea" name="text" placeholder="Enter some text" rows="20" cols="100" required></textarea>
   </br>
     <input type="submit" value="Generate summary" />
   </form>
